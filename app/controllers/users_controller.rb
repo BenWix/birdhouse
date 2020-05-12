@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     get '/profile' do 
         if logged_in?
             @user = current_user
+            #binding.pry
             erb :'users/profile'
         else 
             redirect '/'

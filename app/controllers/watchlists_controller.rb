@@ -35,7 +35,11 @@ class WatchlistsController < ApplicationController
 
     get '/watchlists/:id' do 
         @watchlist = Watchlist.find_by_id(params[:id])
-        erb :'watchlists/show'
+        if @watchlist
+            erb :'watchlists/show'
+        else 
+            redirect '/profile'
+        end
     end
 
     delete '/watchlists/:id' do 

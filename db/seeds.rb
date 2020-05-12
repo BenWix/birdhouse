@@ -9,7 +9,7 @@ users = {"benwix" => "password", "megholla" => "password",
 
 def rand_bird
     birds = ["belted kingfisher", 'northern cardinal', 'tufted titmouse',
-    'robin', 'mochingbird', 'red winged blackbird', 'red eyed vireo',
+    'robin', 'mockingbird', 'red winged blackbird', 'red eyed vireo',
     'killdeer', 'hooded merganser', 'goose', 'green heron', 'indigo bunting',
     'carolina wren', 'black and white warbler', 'gray catbird', 'wood duck',
     'mallard', 'yellow rumped watbler', 'white throated sparrow',
@@ -35,8 +35,9 @@ def new_watchlist
     list.location = rand_location
     list.date_created = time_rand
     rand(3..10).times do 
+        bird =  Bird.find_or_create_by(name: rand_bird)
         rand(5).times do 
-            list.birds << Bird.find_or_create_by(name: rand_bird)
+            list.birds << bird
         end
     end
     list
