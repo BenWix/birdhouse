@@ -14,11 +14,50 @@
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
+  <div class="parent">
+    <div class="div1">
+    <ul class="navbar">
+      <li class="nav"><a href='/'><img id="image" src="/images/birdhouz_logo.png" alt="logo"></a></li>
+      <li class="nav"><a class="nav" href="/profile">Your Profile</a></li>
+      <li class="nav"><a class="nav" href="/locations">Explore</a></li>
+      <li class="nav"><a class="nav" href="/watchlists/new">New List</a></li>
+      <% if session[:user_id]%>
+      <li class="nav" style="float:right"><a class="nav" href="/logout">Logout</a></li>
+      <% else %>
+      <li class="nav" style="float:right"><a class="nav" href="/login">Login</a></li>
+      <li class="nav" style="float:right"><a class="nav" href="/signup">Signup</a></li>
+      <% end %>
+    </ul>
+    </div>
+    <div class="div5">
+    </div>
+    
+    <div class="div6"> 
+        <%= yield %>
+    
+    </div>
+   
+    <div class="div2"> 
+   
+    </div>
+    
+    <div class="div3"> 
+    </div>
+    <div class="div4"> 
+    
+    </div>
+  </div>
+  <!--[if lt IE 7]>
     <div class="header">
     <a href='/'><img id="image" src="/images/birdhouz_logo.png" alt="logo"></a>
     <h1>BirdHouz</h1>
     <h2>Remember, the early bird gets the worm.</h2>
     </div>
+    <ul class="navbar">
+      <li class="nav"><a class="nav" href="/profile">Your Profile</a></li>
+      <li class="nav"><a class="nav" href="/locations">Explore</a></li>
+      <li class="nav"><a class="nav" href="/watchlists/new">New List</a></li>
+    </ul>
     <div class="wrapper">
 
         <%= yield %>
@@ -29,7 +68,7 @@
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    <!--[if lt IE 7]>
+    
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
     <![endif]-->

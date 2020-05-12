@@ -1,6 +1,54 @@
-@media screen {
+.parent {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  }
+  
+  .div1 { grid-area: 1 / 1 / 2 / 9; }
+  .div2 { grid-area: 2 / 1 / 6 / 2; }
+  .div3 { 
+
+    grid-area: 2 / 2 / 6 / 7; }
+  .div4 { grid-area: 2 / 7 / 6 / 9; }
+  .div5 { 
+    grid-area: 2 / 1 / 6 / 9; 
+    background-image: url("../images/kingfisher.jpg");
+  }
+  .div6 { grid-area: 2 / 2 / 6 / 7; }
+
+
+  ul.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #8D8741;
+  }
+  
+  li.nav {
+    float: left;
+  }
+  
+  a.nav {
+    display: block;
+    color: #FBEEC1;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  a.nav:hover{
+    background-color: rgb(107, 102, 49);
+
+  }
+  
+
+
+/* @media screen {
   /* --- Reset Styles --- */
-  * {
+ /* * {
     list-style: none;
     margin: 0;
     padding: 0;
@@ -12,7 +60,7 @@
   }
 
   /* --- Welcome Page Styles --- */
-  body {
+ /* body {
     background-color: rgb(4, 134, 69);
     color: #333;
     font-family: Sans-Serif;
@@ -23,6 +71,23 @@
     background-color: transparent;
   }
 
+  ul.navbar{
+    list-style-type: none;
+    margin: 0;
+    padding; 0;
+    background-color: #dddddd;
+
+  }
+
+  li.nav{
+    display: inline;
+    float: left;
+  }
+  a.nav{
+    display: block;
+    padding: 8px;
+  }
+
   .wrapper {
     background: #fff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -31,7 +96,7 @@
     margin: 16px auto;
     max-width: 960px;
     padding: 2.25%; /* 18px / 800px */
-    width: 85%;
+  /*  width: 85%;
   }
 
   h1 {
@@ -62,15 +127,15 @@
   .content {
     float: left;
     width: 60%; /* 480px / 800px */
-  }
+  /*}
 
   .sidebar {
     background: #eee;
     border: 1px solid #ccc;
     float: right;
     padding: 2.08333333333%; /* 5px / 240px */
-    width: 30%; /* 240px / 800px */
-  }
+    /*width: 30%; /* 240px / 800px */
+  /*}
 
   .tab { margin-left: 20px; }
 
@@ -132,4 +197,4 @@
     line-height: 24px;
   }
 }
-
+ */
