@@ -1,0 +1,9 @@
+<h3>Check the following birding hotspots</h3>
+
+<ul>
+    <% @locations.each do |location|%>
+        <li><a href="/locations/<%= location.id %>"><%= location.name.titleize%></a></li>
+        <p tag="tab">Birds Spotted here: <%= location.birds.uniq.count %></p>
+    <% end %>
+
+</ul>

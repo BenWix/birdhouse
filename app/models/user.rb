@@ -8,7 +8,8 @@ class User < ActiveRecord::Base
         self.birds.each do |bird|
             bird_hash[bird.name] += 1
         end
-        bird_hash.sort_by{|bird, count| count}.reverse[0...4]
+
+        bird_hash.sort_by{|bird, count| count}.reverse[0...5]
     end
     
     def slug 
