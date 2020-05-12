@@ -1,4 +1,13 @@
 <p>Hello <%=@user.username%></p>
+<ul>
+<% @user.watchlists.each do |watchlist|%>
+
+    <li><a href="/watchlists/<%= watchlist.id%>"></a>Watchlist on<%= watchlist.date %></li>
+
+<% end %>
+</ul>
+
+
 
 <form action="/watchlists/new" method="GET">
     <input type="submit" value="Make new Watchlist">
