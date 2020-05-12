@@ -1,5 +1,6 @@
 class Watchlist < ActiveRecord::Base
     belongs_to :user
+    belongs_to :location
     has_many :bird_watchlists
     has_many :birds, through: :bird_watchlists
 

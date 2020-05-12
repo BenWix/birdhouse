@@ -13,6 +13,8 @@ class WatchlistsController < ApplicationController
         
         watchlist = Watchlist.new(notes: params[:notes])
         watchlist.user = current_user
+        watchlist.location = Location.find_or_create_by(name: params[:location].downcase)
+        watchlist.date_created = Time.new(*params[:date].split("-"))
         birds = params[:birds].select{|bird| bird[:name] != ''}
  
         birds.each do |bird|

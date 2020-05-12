@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200511160246) do
+ActiveRecord::Schema.define(version: 20200512122141) do
 
   create_table "bird_watchlists", force: :cascade do |t|
     t.integer "quantity",     default: 1
@@ -23,6 +23,11 @@ ActiveRecord::Schema.define(version: 20200511160246) do
     t.string "name"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.string "description"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "username"
     t.string "password_digest"
@@ -31,6 +36,8 @@ ActiveRecord::Schema.define(version: 20200511160246) do
   create_table "watchlists", force: :cascade do |t|
     t.string  "notes"
     t.integer "user_id"
+    t.text    "date_created"
+    t.integer "location_id"
   end
 
 end

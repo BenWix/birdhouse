@@ -1,5 +1,6 @@
 <h3>Lets check out this watchlist by <%= @watchlist.user.username %></h3>
-
+<h3>Location: <%= @watchlist.location.name.titleize %></h3>
+<h4>Date: <%= Date.parse(@watchlist.date_created).strftime("%d of %B, %Y") %></h4>
 <ul>
     <% @watchlist.get_bird_hash.each do |bird, count|%>
         <p><%=bird.titleize%></p>

@@ -2,7 +2,7 @@
 <ul>
 <% @user.watchlists.each do |watchlist|%>
 
-    <li><a href="/watchlists/<%= watchlist.id%>"></a>Watchlist on<%= watchlist.date %></li>
+    <li><a href="/watchlists/<%= watchlist.id%>"></a><%= watchlist.location.name.titleize%> on<%= watchlist.date_created.strftime("%d/%m/%Y") %></li>
 
 <% end %>
 </ul>

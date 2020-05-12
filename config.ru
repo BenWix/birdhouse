@@ -6,6 +6,7 @@ end
 
 use Rack::MethodOverride
 
+use LocationController
 use WatchlistsController
 use BirdsController
 use UsersController

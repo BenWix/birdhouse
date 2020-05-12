@@ -1,6 +1,14 @@
 <h3>What birds did you see today??</h3>
 
 <form action="/watchlists/new" method="POST">
+    <label>Location: </label>
+    <input type="text" name="location">
+    <br>
+    <label>Date: </label>
+    <input type="date" name="date">
+
+    <br><br>
+    
     <% 5.times do%>
         <label>Bird Name: </label>
         <input type="text" name="birds[][name]">
