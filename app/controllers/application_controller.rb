@@ -11,7 +11,7 @@ class ApplicationController < Sinatra::Base
 
   get "/" do
     @session = session
-    @watchlists = Watchlist.all.sort_by{|list| Date.parse(list.date_created)}[0..4]
+    @watchlists = Watchlist.all.sort_by{|list| Date.parse(list.date_created)}.reverse[0..4]
     erb :welcome
   end
 

@@ -1,0 +1,12 @@
+<h1><%= @location.name.titleize %></h1>
+
+<% if @location.description%>
+    <p class="tab"><%=@location.description%></p>
+<% end %>
+
+<h3>Recent Watchlists at <%= @location.name.titleize %></h3>
+<% @location.watchlists.sort_by{|list| Date.parse(list.date_created)}.reverse[0...4].each do |list|%>
+    <p><a href="/watchlists/<%= list.id %>"><%= list.location.name.titleize%> on <%= Date.parse(list.date_created).strftime("%m/%d/%Y") %></a></p>
+    <p>By user <%= list.user.username %></p>
+<% end %>
+
