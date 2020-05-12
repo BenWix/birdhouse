@@ -6,6 +6,13 @@
     <div class="content">
       <p>Welcome to the best watchlist tracker on the webz!</a>.</p>
 
+      <h4>Here are some recent watchlists</h4>
+      <ul>
+        <% @watchlists.each do |watchlist|%>
+          <p><a href="/watchlists/<%= watchlist.id %>"><%= watchlist.location.name.titleize%> on <%= Date.parse(watchlist.date_created).strftime("%m/%d/%Y") %></a></p>
+          <p>By user <%= watchlist.user.username %></p>
+        <% end %>
+      </ul>
       <% if @session[:user_id]%>
         <form action="/logout" method="POST">
           <input type="submit" value="Logout">
@@ -22,7 +29,14 @@
     </div>
 
     <div class="sidebar">
-      <p>Maybe I Will put some cool Bird stats over here</p>
+      <p>Users have logged <%= Bird.all.length %> different species!!</p>
+    
+      <h4>These are the rarest birds</h4>
+      <ol>
+        <% Watchlist.rare_birds.each do |bird|%>
+          <li><%= bird[0].titleize %></li>
+        <% end %>
+      </ol>
     </div>
 
   </div>

@@ -35,6 +35,8 @@ class WatchlistsController < ApplicationController
 
     get '/watchlists/:id' do 
         @watchlist = Watchlist.find_by_id(params[:id])
+        @session = session
+    
         if @watchlist
             erb :'watchlists/show'
         else 

@@ -4,16 +4,17 @@
 <ul>
     <% @watchlist.get_bird_hash.each do |bird, count|%>
         <p><%=bird.titleize%></p>
-        <p>Count: <%=count%></p>
+        <p class="tab"> Count: <%=count%></p>
         <br>
     <% end%>
 </ul>
+<% if @session[:user_id] == @watchlist.user.id%>
+    <form action="/watchlists/<%= @watchlist.id %>/edit">
+        <input type="submit" value="Edit Watchlist">
+    </form>
 
-<form action="/watchlists/<%= @watchlist.id %>/edit">
-    <input type="submit" value="Edit Watchlist">
-</form>
-
-<form action="/watchlists/<%= @watchlist.id %>" method="POST">
-    <input type="hidden" id="hidden" name="_method" value="DELETE">
-    <input type="submit" value="Delete Watchlist">
-</form>
+    <form action="/watchlists/<%= @watchlist.id %>" method="POST">
+        <input type="hidden" id="hidden" name="_method" value="DELETE">
+        <input type="submit" value="Delete Watchlist">
+    </form>
+<% end%>

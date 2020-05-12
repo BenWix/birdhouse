@@ -1,14 +1,22 @@
-<p>Hello <%=@user.username%></p>
+<p>Hello <%=@user.username%>!</p>
 <ul>
+<% watchlists = @user.watchlists.sort_by{|list| Date.parse(list.date_created)}%>
 <% @user.watchlists.each do |watchlist|%>
 
-    <li><a href="/watchlists/<%= watchlist.id%>"><%= watchlist.location.name.titleize%> on <%= Date.parse(watchlist.date_created).strftime("%d/%m/%Y") %></a></li>
+    <li><a href="/watchlists/<%= watchlist.id%>"><%= watchlist.location.name.titleize%> on <%= Date.parse(watchlist.date_created).strftime("%m/%d/%Y") %></a></li>
 
 <% end %>
 </ul>
 
 
+<div class="sidebar">
+    <p>You have seen <%= @user.birds.count %> different bird species</p>
+    
+    <p>More stats coming soon!</p>
+</div>
 
+
+<br>
 <form action="/watchlists/new" method="GET">
     <input type="submit" value="Make new Watchlist">
 </form>
