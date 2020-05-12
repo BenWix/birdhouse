@@ -13,7 +13,7 @@ def rand_bird
     'killdeer', 'hooded merganser', 'goose', 'green heron', 'indigo bunting',
     'carolina wren', 'black and white warbler', 'gray catbird', 'wood duck',
     'mallard', 'yellow rumped watbler', 'white throated sparrow',
-    'carolina chickadee', 'barred owel', 'bald eagle', 'osprey', 
+    'carolina chickadee', 'barred owl', 'bald eagle', 'osprey', 
     'ring-billed gull', 'baltimore oriole']
     
     birds.sample
