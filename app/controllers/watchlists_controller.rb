@@ -74,7 +74,7 @@ class WatchlistsController < ApplicationController
             end
         end
         @watchlist.notes = params[:notes]
-     
+        @watchlist.save
         redirect "/watchlists/#{@watchlist.id}"
 
     end

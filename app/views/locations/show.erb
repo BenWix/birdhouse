@@ -7,6 +7,19 @@
 <h3>Recent Watchlists at <%= @location.name.titleize %></h3>
 <% @location.watchlists.sort_by{|list| Date.parse(list.date_created)}.reverse[0...4].each do |list|%>
     <p><a href="/watchlists/<%= list.id %>"><%= list.location.name.titleize%> on <%= Date.parse(list.date_created).strftime("%m/%d/%Y") %></a></p>
-    <p>By user <%= list.user.username %></p>
+    <p class="tab">By user <%= list.user.username %></p>
 <% end %>
+
+<div class="sidebar">
+    
+    <p><%= @location.birds.uniq.count %> different birds have been spotted here!</p>
+    
+    <h3>Here are the most common birds at <%= @location.name.titleize %></h3>
+    <ol>
+        <% @location.common_birds.each do |bird|%>
+            <li><%= bird[0].titleize %></li>
+        <% end %>
+    </ol>
+    <p>More stats coming soon!</p>
+</div>
 

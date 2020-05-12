@@ -4,7 +4,7 @@ class LocationController < ApplicationController
     end
     
     get '/locations/:id' do 
-        @location = Locations.find_by_id(params[:id])
+        @location = Location.find_by_id(params[:id])
         if @location 
             erb :'locations/show'
         else 
