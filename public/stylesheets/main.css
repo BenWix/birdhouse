@@ -72,6 +72,8 @@
     width: 30%; /* 240px / 800px */
   }
 
+  .tab { margin-left: 20px; }
+
   .sidebar ul {
     font-size: 14px;
   }
