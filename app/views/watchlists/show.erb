@@ -1,0 +1,18 @@
+<h3>Lets check out this watchlist by <%= @watchlist.user.username %></h3>
+
+<ul>
+    <% @watchlist.get_bird_hash.each do |bird, count|%>
+        <p><%=bird.titleize%></p>
+        <p>Count: <%=count%></p>
+        <br>
+    <% end%>
+</ul>
+
+<form action="/watchlists/<%= @watchlist.id %>/edit">
+    <input type="submit" value="Edit Watchlist">
+</form>
+
+<form action="/watchlists/<%= @watchlist.id %>" method="POST">
+    <input type="hidden" id="hidden" name="_method" value="DELETE">
+    <input type="submit" value="Delete Watchlist">
+</form>

@@ -13,7 +13,7 @@
 
   /* --- Welcome Page Styles --- */
   body {
-    background-color: lightblue;
+    background-color: rgb(148, 11, 11);
     color: #333;
     font-family: Sans-Serif;
     line-height: 18px;
@@ -76,6 +76,19 @@
     clear: both;
   }
 
+  .header img {
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: #555;
+  }
+  
+  .header h1 {
+    position: relative;
+    top: 18px;
+    left: 10px;
+  }
+
   footer.branding {
     border-top: 2px solid #ccc;
     margin-top: 20px;
@@ -113,3 +126,4 @@
     line-height: 24px;
   }
 }
+

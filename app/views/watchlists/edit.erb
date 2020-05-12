@@ -1,0 +1,29 @@
+<h3>Feel Free to edit the Following Watchlist</h3>
+
+
+<form action="/watchlists/<%= @watchlist.id %>/edit" method="POST">
+    <input type="hidden" name="_method" id="hidden" value="PATCH">
+    <h3>Edit Existing Birds</h3>
+    <% @watchlist.get_bird_hash.each do |bird, count| %>
+        <label>Bird Name: </label>
+        <input type="text" name="birds[][name]" value="<%= bird.titleize %>">
+        <br>
+        <label>Bird Count: </label>
+        <input type="text" name="birds[][count]" value=<%=count.to_s%>>
+        <br><br>
+    <% end %>
+    
+    <h3>Enter new birds</h3>
+    <% 5.times do%>
+        <label>Bird Name: </label>
+        <input type="text" name="birds[][name]">
+        <br>
+        <label>Bird Count: </label>
+        <input type="text" name="birds[][count]">
+        <br><br>
+    <% end %>
+    <label>Notes: </label>
+    <input type="textarea" name = notes value="<%= @watchlist.notes %>">
+    <br>
+    <input type="submit">
+</form>

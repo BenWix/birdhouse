@@ -5,16 +5,24 @@
 
     <div class="content">
       <p>Welcome to the best watchlist tracker on the webz!</a>.</p>
+
+      <% if @session[:user_id]%>
+        <form action="/logout" method="POST">
+          <input type="submit" value="Logout">
+        </form>
+      <% else %>
+        <form action="/login" method="GET">
+          <input type="submit" value="Login">
+        </form>
+        <form action="/signup" method="GET">
+          <input type="submit" value="Signup">
+        </form>
+
+      <% end %>
     </div>
 
     <div class="sidebar">
-      <h3>Environment</h3>
-      <ul>
-        <li><b>Ruby:</b> <%= RUBY_VERSION %></li>
-        <li><b>Environment:</b> <%= ENV["RACK_ENV"] %></li>
-        <li><b>Server:</b> <%= @env["SERVER_SOFTWARE"] %></li>
-        <li><b>Port:</b> <%= @env["SERVER_PORT"] %></li>
-      </ul>
+      <p>Maybe I Will put some cool Bird stats over here</p>
     </div>
 
   </div>
