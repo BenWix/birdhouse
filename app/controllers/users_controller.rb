@@ -8,12 +8,19 @@ class UsersController < ApplicationController
 
     post '/signup' do 
         unless params[:username] == ''
-            user = User.new(params)
-            if user.save
-                session[:user_id] = user.id
-                redirect '/profile'
+            exisitng_user = User.find_by(username: params[:username])
+            unless exisitng_user
+                user = User.new(params)
+                if user.save
+                    session[:user_id] = user.id
+                    redirect '/profile'
+                end
+            else
+                #That username is already taken
+                redirect '/signup'
             end
         end
+        #please enter a valid username and password
         redirect '/signup'
     end
 

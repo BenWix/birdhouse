@@ -10,25 +10,29 @@ class WatchlistsController < ApplicationController
     end
     
     post '/watchlists/new' do 
-        
-        watchlist = Watchlist.new(notes: params[:notes])
-        watchlist.user = current_user
-        watchlist.location = Location.find_or_create_by(name: params[:location].downcase)
-        watchlist.date_created = Time.new(*params[:date].split("-"))
-        birds = params[:birds].select{|bird| bird[:name] != ''}
- 
-        birds.each do |bird|
-            bird_object = Bird.find_or_create_by(name: bird[:name].downcase)
-            bird[:count] == '' ? count = 1 : count = bird[:count].to_i
-            count.times do 
-                watchlist.birds << bird_object
+        if params[:location] == "" or params[:date] == ""
+            #please add lovation and date
+            redirect '/watchlists/new'
+        else 
+            watchlist = Watchlist.new(notes: params[:notes])
+            watchlist.user = current_user
+            watchlist.location = Location.find_or_create_by(name: params[:location].downcase)
+            watchlist.date_created = Time.new(*params[:date].split("-"))
+            birds = params[:birds].select{|bird| bird[:name] != ''}
+
+            birds.each do |bird|
+                bird_object = Bird.find_or_create_by(name: bird[:name].downcase)
+                bird[:count] == '' ? count = 1 : count = bird[:count].to_i
+                count.times do 
+                    watchlist.birds << bird_object
+                end
             end
+
+            watchlist.save
+            redirect "/watchlists/#{watchlist.id}"
         end
- 
-        watchlist.save
-        redirect "/watchlists/#{watchlist.id}"
     end
-    
+
     get '/watchlists/:id' do 
         @watchlist = Watchlist.find_by_id(params[:id])
         erb :'watchlists/show'
