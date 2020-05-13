@@ -38,9 +38,14 @@
     
     <div class="div6"> 
       <% if flash[:alert]%>
-      <div class="warning">
-        <%= flash[:alert] %>
-      </div>
+        <div class="warning">
+          <%= flash[:alert] %>
+        </div>
+      <% end %>
+      <% if flash[:message]%>
+        <div class="message">
+          <%= flash[:message] %>
+        </div>
       <% end %>
       <%= yield %>
     

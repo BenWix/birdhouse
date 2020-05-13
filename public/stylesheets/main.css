@@ -52,7 +52,7 @@
     text-decoration: none;
   }
 
-  input[type=submit] {
+  li.nav input[type=submit] {
     background-color: #659DBD;
     border: none;
     color: #FBEEC1;
@@ -65,10 +65,14 @@
     background-color: #f44336; /* Red */
     color: white;
     margin-bottom: 15px;
-
   }
 
-
+  .message {
+    padding: 20px;
+    background-color: #659dbd; /* Blue */
+    color: white;
+    margin-bottom: 15px;
+  }
 
   /* a.nav:hover{
     background-color: rgb(107, 102, 49);

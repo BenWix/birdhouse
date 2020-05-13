@@ -29,6 +29,7 @@ class WatchlistsController < ApplicationController
             end
 
             watchlist.save
+            flash[:message] = "Watchlist successfully created!"
             redirect "/watchlists/#{watchlist.id}"
         end
     end
@@ -57,6 +58,7 @@ class WatchlistsController < ApplicationController
         if current_user = @watchlist.user
             erb :'watchlists/edit'
         else 
+            flash[:alert] = "You may only edit your own watchlists."
             redirect '/profile'
         end
     end

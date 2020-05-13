@@ -13,19 +13,7 @@
           <p>By user <%= watchlist.user.username %></p>
         <% end %>
       </ul>
-      <% if @session[:user_id]%>
-        <form action="/logout" method="POST">
-          <input type="submit" value="Logout">
-        </form>
-      <% else %>
-        <form action="/login" method="GET">
-          <input type="submit" value="Login">
-        </form>
-        <form action="/signup" method="GET">
-          <input type="submit" value="Signup">
-        </form>
 
-      <% end %>
     </div>
 
     <div class="sidebar">
