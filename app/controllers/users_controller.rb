@@ -16,16 +16,17 @@ class UsersController < ApplicationController
                     redirect '/profile'
                 end
             else
-                #That username is already taken
+                flash[:alert] = "That username is unavailable." 
                 redirect '/signup'
             end
         end
-        #please enter a valid username and password
+        flash[:alert] = "Please enter a valid username and password."
         redirect '/signup'
     end
 
     get '/login' do 
         if logged_in?
+            flash[:alert] = "You are already logged in."
             redirect '/'
         end
         erb :'users/login'
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect '/profile'
         else 
+            flash[:alert] = "Your username or password is incorrect"
             redirect '/login'
         end
     end
@@ -50,9 +52,9 @@ class UsersController < ApplicationController
     get '/profile' do 
         if logged_in?
             @user = current_user
-            #binding.pry
             erb :'users/profile'
         else 
+            flash[:alert] = "You must be logged in to view your profile."
             redirect '/'
         end
     end

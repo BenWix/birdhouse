@@ -4,21 +4,29 @@
   grid-template-rows: repeat(5, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+}
+
+
+  body {
+    background-color: #FBEEC1
+    ;
   }
-  
   .div1 { grid-area: 1 / 1 / 2 / 9; }
   .div2 { grid-area: 2 / 1 / 6 / 2; }
-  .div3 { 
 
-    grid-area: 2 / 2 / 6 / 7; }
   .div4 { grid-area: 2 / 7 / 6 / 9; }
   .div5 { 
+    width: 99%;
+    height: 99%;
     grid-area: 2 / 1 / 6 / 9; 
     background-image: url("../images/kingfisher.jpg");
   }
   .div6 { grid-area: 2 / 2 / 6 / 7; }
 
-
+  #logo {
+    width: 75px;
+    height: 75px;
+  }
   ul.navbar {
     list-style-type: none;
     margin: 0;
@@ -28,7 +36,12 @@
   }
   
   li.nav {
+    font-size: 150%;
     float: left;
+  }
+
+  li.nav:hover{
+    background-color: rgb(107, 102, 49);
   }
   
   a.nav {
@@ -39,11 +52,29 @@
     text-decoration: none;
   }
 
-  a.nav:hover{
+  input[type=submit] {
+    background-color: #659DBD;
+    border: none;
+    color: #FBEEC1;
+    font-size: 100%;
+    padding: 15%;
+
+  }
+  .warning {
+    padding: 20px;
+    background-color: #f44336; /* Red */
+    color: white;
+    margin-bottom: 15px;
+
+  }
+
+
+
+  /* a.nav:hover{
     background-color: rgb(107, 102, 49);
 
   }
-  
+   */
 
 
 /* @media screen {
