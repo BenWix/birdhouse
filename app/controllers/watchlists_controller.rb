@@ -5,6 +5,7 @@ class WatchlistsController < ApplicationController
         if logged_in?
             erb :'watchlists/new'   
         else 
+            flash[:alert] = "Must be logged in to create a new Watchlist"
             redirect '/'
         end
     end
