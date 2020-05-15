@@ -13,8 +13,8 @@
 
     <p>These are your most commonly seen birds.</p>
     <ol>
-        <% @user.common_birds.each do |bird|%>
-            <li><%= bird[0].titleize %></li>
+        <% @common_birds.each do |bird|%>
+            <li><%= bird.first.name.titleize %></li>
         <% end %>
     </ol>
 

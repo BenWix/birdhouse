@@ -8,7 +8,7 @@
 
 
   body {
-    background-color: #FBEEC1
+    background-color: #DAAD86
     ;
   }
   .div1 { grid-area: 1 / 1 / 2 / 9; }
@@ -21,7 +21,14 @@
     grid-area: 2 / 1 / 6 / 9; 
     background-image: url("../images/kingfisher.jpg");
   }
-  .div6 { grid-area: 2 / 2 / 6 / 7; }
+  .div6 { 
+    background-color: #659DBD;
+    padding: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    grid-area: 2 / 2 / 6 / 7; }
 
   #logo {
     width: 75px;
@@ -33,6 +40,7 @@
     padding: 0;
     overflow: hidden;
     background-color: #8D8741;
+    border-radius: 15px;
   }
   
   li.nav {
@@ -65,6 +73,11 @@
     background-color: #f44336; /* Red */
     color: white;
     margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
   }
 
   .message {
@@ -72,8 +85,33 @@
     background-color: #659dbd; /* Blue */
     color: white;
     margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 15px;
+    -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 0 0 10px rgba(0,0,0,.3);
   }
 
+  .title {
+    float: left;
+    width: 150px;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  .submit {
+    text-align: right;
+  }
+
+  .sidebar {
+    background: #eee;
+    border: 1px solid #ccc;
+    float: right;
+    padding: 2.08333333333%; /* 5px / 240px */
+    width: 30%; /* 240px / 800px */
+    background-color: #FBEEC1;
+    border-radius: 15px;
+  }
   /* a.nav:hover{
     background-color: rgb(107, 102, 49);
 

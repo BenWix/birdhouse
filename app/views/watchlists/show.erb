@@ -3,8 +3,8 @@
 <h4>Date: <%= Date.parse(@watchlist.date_created).strftime("%d of %B, %Y") %></h4>
 <p>Notes: <%= @watchlist.notes %></p>
 <ul>
-    <% @watchlist.get_bird_hash.each do |bird, count|%>
-        <p><%=bird.titleize%></p>
+    <% @bird_hash.each do |bird, count|%>
+        <p><%=bird.name.titleize%></p>
         <p class="tab"> Count: <%=count%></p>
         <br>
     <% end%>

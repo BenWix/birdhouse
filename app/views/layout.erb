@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+ <html class="no-js" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
@@ -10,30 +7,23 @@
     <title>Birdhouz</title>
     <link rel="icon" href="/images/birdhouz_favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
   <div class="parent">
     <div class="div1">
-    <ul class="navbar">
+    <ul class="navbar" id="navbar">
       <li class="nav"><a href='/'><img id="logo" src="/images/birdhouz_logo.png" alt="logo"></a></li>
       <li class="nav"><a class="nav" href="/profile">Your Profile</a></li>
       <li class="nav"><a class="nav" href="/locations">Explore</a></li>
       <li class="nav"><a class="nav" href="/watchlists/new">New List</a></li>
       <% if session[:user_id]%>
-      <form action="/logout" method="POST">
-        <li class="nav" style="float:right">
-          <input type="submit" value="Logout">
-        </li>
-      </form>
+         <li class="nav" style="float:right"><a class="nav" href="/logout">Logout</a></li>
       <% else %>
-      <li class="nav" style="float:right"><a class="nav" href="/login">Login</a></li>
-      <li class="nav" style="float:right"><a class="nav" href="/signup">Signup</a></li>
+        <li class="nav" style="float:right"><a class="nav" href="/login">Login</a></li>
+        <li class="nav" style="float:right"><a class="nav" href="/signup">Signup</a></li>
       <% end %>
     </ul>
-    </div>
-    <div class="div5">
     </div>
     
     <div class="div6"> 
@@ -51,38 +41,7 @@
     
     </div>
    
-    <div class="div2"> 
-   
-    </div>
-    
-    <div class="div4"> 
-    
-    </div>
   </div>
-  <!--[if lt IE 7]>
-    <div class="header">
-    <a href='/'><img id="image" src="/images/birdhouz_logo.png" alt="logo"></a>
-    <h1>BirdHouz</h1>
-    <h2>Remember, the early bird gets the worm.</h2>
-    </div>
-    <ul class="navbar">
-      <li class="nav"><a class="nav" href="/profile">Your Profile</a></li>
-      <li class="nav"><a class="nav" href="/locations">Explore</a></li>
-      <li class="nav"><a class="nav" href="/watchlists/new">New List</a></li>
-    </ul>
-    <div class="wrapper">
 
-        <%= yield %>
-
-      <footer class="branding">
-        <small>&copy; 2020 <strong>Birdhouse</strong></small>
-      </footer>
-    </div>
-
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    
-      <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
-      <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>
-    <![endif]-->
   </body>
 </html>

@@ -10,19 +10,19 @@ class WatchlistsController < ApplicationController
     end
     
     post '/watchlists/new' do 
-        if params[:location] == "" or params[:date] == ""
-            #please add lovation and date
+        if params[:location].empty? || params[:date].empty?
+            flash[:alert] = "Missing fields"
             redirect '/watchlists/new'
         else 
             watchlist = Watchlist.new(notes: params[:notes])
             watchlist.user = current_user
             watchlist.location = Location.find_or_create_by(name: params[:location].downcase)
             watchlist.date_created = Time.new(*params[:date].split("-"))
-            birds = params[:birds].select{|bird| bird[:name] != ''}
+            birds = params[:birds].reject{|bird| bird[:name].empty?}
 
             birds.each do |bird|
                 bird_object = Bird.find_or_create_by(name: bird[:name].downcase)
-                bird[:count] == '' ? count = 1 : count = bird[:count].to_i
+                count = bird[:count].empty? ? 1 : bird[:count].to_i
                 count.times do 
                     watchlist.birds << bird_object
                 end
@@ -37,7 +37,7 @@ class WatchlistsController < ApplicationController
     get '/watchlists/:id' do 
         @watchlist = Watchlist.find_by_id(params[:id])
         @session = session
-    
+        @bird_hash = group_by_hash(@watchlist.birds)
         if @watchlist
             erb :'watchlists/show'
         else 

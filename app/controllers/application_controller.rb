@@ -27,6 +27,11 @@ class ApplicationController < Sinatra::Base
       User.find_by_id(session[:user_id])
     end
 
+    def group_by_hash(objects) 
+      hash = Hash.new(0)
+      objects.each{|object| hash[object] += 1}
+      hash
+    end
   end
 
 end

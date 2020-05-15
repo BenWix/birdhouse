@@ -7,9 +7,9 @@ class UsersController < ApplicationController
     end
 
     post '/signup' do 
-        unless params[:username] == ''
-            exisitng_user = User.find_by(username: params[:username])
-            unless exisitng_user
+        unless params[:username].empty?
+            existing_user = User.find_by(username: params[:username])
+            unless existing_user
                 user = User.new(params)
                 if user.save
                     session[:user_id] = user.id
@@ -44,7 +44,9 @@ class UsersController < ApplicationController
         end
     end
 
-    post '/logout' do 
+    
+
+    get '/logout' do 
         session.clear
         redirect '/'
     end
@@ -52,6 +54,7 @@ class UsersController < ApplicationController
     get '/profile' do 
         if logged_in?
             @user = current_user
+            @common_birds = group_by_hash(@user.birds).sort_by{|bird, count| count}.reverse[0..4]
             erb :'users/profile'
         else 
             flash[:alert] = "You must be logged in to view your profile."
