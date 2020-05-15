@@ -16,10 +16,9 @@
     
     <h3>Here are the most common birds at <%= @location.name.titleize %></h3>
     <ol>
-        <% @location.common_birds.each do |bird|%>
-            <li><%= bird[0].titleize %></li>
+        <% @common_birds.each do |bird|%>
+            <li><%= bird.first.name.titleize %></li>
         <% end %>
     </ol>
-    <p>More stats coming soon!</p>
 </div>
 

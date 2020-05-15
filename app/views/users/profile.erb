@@ -1,4 +1,4 @@
-<p>Hello <%=@user.username%>!</p>
+<h3>Hello <%=@user.username%>!</h3>
 <ul>
     <% watchlists = @user.watchlists.sort_by{|list| Date.parse(list.date_created)}%>
     <% @user.watchlists.each do |watchlist|%>
@@ -17,12 +17,5 @@
             <li><%= bird.first.name.titleize %></li>
         <% end %>
     </ol>
-
-    <p>More stats coming soon!</p>
 </div>
 
-
-<br>
-<form action="/watchlists/new" method="GET">
-    <input type="submit" value="Make new Watchlist">
-</form>

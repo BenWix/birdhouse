@@ -19,8 +19,8 @@
     width: 99%;
     height: 99%;
     grid-area: 2 / 1 / 6 / 9; 
-    background-image: url("../images/kingfisher.jpg");
   }
+
   .div6 { 
     background-color: #659DBD;
     padding: 15px;
@@ -112,6 +112,8 @@
     background-color: #FBEEC1;
     border-radius: 15px;
   }
+  
+  .tab { margin-left: 20px; }
   /* a.nav:hover{
     background-color: rgb(107, 102, 49);
 
