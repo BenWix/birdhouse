@@ -14,11 +14,15 @@ class WatchlistsController < ApplicationController
             flash[:alert] = "Missing fields"
             redirect '/watchlists/new'
         else 
+            birds = params[:birds].reject{|bird| bird[:name].empty?}
+            if birds.any?{|bird| bird[:count] != bird[:count].to_i.to_s}
+                flash[:alert] = "All counts must be integers"
+                redirect '/watchlists/new'
+            end
             watchlist = Watchlist.new(notes: params[:notes])
             watchlist.user = current_user
             watchlist.location = Location.find_or_create_by(name: params[:location].downcase)
             watchlist.date_created = Time.new(*params[:date].split("-"))
-            birds = params[:birds].reject{|bird| bird[:name].empty?}
 
             birds.each do |bird|
                 bird_object = Bird.find_or_create_by(name: bird[:name].downcase)
